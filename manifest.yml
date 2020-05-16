@@ -1,0 +1,11 @@
+applications:
+- name: firstapp
+  path: /target/plainboot-0.0.1.jar
+  buildpacks: 
+  - https://github.com/cloudfoundry/java-buildpack.git
+  disk_quota: 1G
+  instances: 1
+  memory: 1G
+  routes:
+  - route: firstapp-optimistic-crane-rl.cfapps.io
+  stack: cflinuxfs3
