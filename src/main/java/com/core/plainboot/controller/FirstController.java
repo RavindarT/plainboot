@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.core.plainboot.services.service1.ConstructorInjection;
+import com.core.plainboot.services.service1.GetterSetterInjection;
 import com.core.plainboot.services.service1.Service1;
 
 
@@ -19,8 +21,16 @@ public class FirstController {
 	@Autowired
 	Service1 service1;
 	
+	@Autowired
+	ConstructorInjection constructorInjection;
+	
+	@Autowired
+	GetterSetterInjection getterSetterInjection;
+	
 	@GetMapping("/req")
 	public String getContent() {
+		constructorInjection.call();
+		System.out.println(getterSetterInjection.callgettersetter());
 		return "Hello";
 	}
 	
